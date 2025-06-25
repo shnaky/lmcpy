@@ -41,7 +41,7 @@ class CPU:
         if self.halted:
             return None
         match self.i_reg:
-            case 0: #hlt
+            case 0: #hlt 000
                 print("hlt")
                 self.halted = True
             case 1: # add
@@ -64,11 +64,18 @@ class CPU:
                 print("brp")
             case 9: # io
                 print("io")
-                if self.addr_reg == 2: # out
+                if self.addr_reg == 2: # out 902
                     print(f"OUTPUT: {self.accum}")
-                elif self.addr_reg == 1: # inp
+                elif self.addr_reg == 1: # inp 901
                     self.accum = int(input("INPUT: "))
 
+class LMCParser:
+    """
+    Parses everything of the .lmc file into a 'compiled' file if wanted with the instructions.
+    After creating the compiled file it can be loaded into memory by the LMC.
+    Maybe this way it might be more flexible
+    """
+    ...
 
 class LMC:
     OPCODE_SET = {
