@@ -1,0 +1,7 @@
+INP
+STA firstNum
+INP
+ADD firstNum
+OUT
+HLT
+firstNum DAT
